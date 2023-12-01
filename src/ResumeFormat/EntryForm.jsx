@@ -3,7 +3,7 @@ import "../Css/style.css"
 import { Card, CardBody } from "@chakra-ui/react";
 import Title from "../Pages/Title";
 import Profile from "../Pages/Profile";
-import ExperienceSummary from "../Pages/ExperienceSummary";
+import ProfessionalSummary from "../Pages/ProfessionalSummary";
 import Employement from "../Pages/Employement";
 import Education from "../Pages/Education";
 import Skill from "../Pages/Skill";
@@ -20,7 +20,7 @@ const EntryForm = () => {
             <CardBody>
               <Title/>
               <Profile />
-              <ExperienceSummary />
+              <ProfessionalSummary />
               <Employement />
               <Education />
               <Skill />

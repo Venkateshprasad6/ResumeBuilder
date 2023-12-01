@@ -21,3 +21,4 @@ export const EduDetail = createSlice({
  
 export const { setEduDetail } = EduDetail.actions;
 export default EduDetail.reducer;
+

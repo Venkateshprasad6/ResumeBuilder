@@ -1,4 +1,4 @@
-import React,{useEffect} from "react";
+import React, { useEffect } from "react";
 import "../Css/style.css";
 import { useForm } from "react-hook-form";
 import {
@@ -20,34 +20,27 @@ import {
   AccordionIcon,
 } from "@chakra-ui/react";
 
-import {setProDetail} from "../features/ProfileDetail";
-import {  useDispatch } from "react-redux";
-
-
-
+import { setProDetail } from "../features/ProfileDetail";
+import { useDispatch } from "react-redux";
 
 function Profile() {
   const {
     register,
     formState: { errors },
-    watch
+    watch,
   } = useForm({ mode: "onChange" });
- 
-  const dispatch = useDispatch()
+
+  const dispatch = useDispatch();
   useEffect(() => {
-    const subscribe = watch((data)=>{
-    dispatch(setProDetail(data))
-    console.log(data)
-    })
-    return()=>{
-    subscribe.unsubscribe();
-    }
-  }, [watch])
-   
+    const subscribe = watch((data) => {
+      dispatch(setProDetail(data));
+      console.log(data);
+    });
+    return () => {
+      subscribe.unsubscribe();
+    };
+  }, [watch]);
 
-  
-
-  
   return (
     <>
       <Box>
@@ -59,7 +52,6 @@ function Profile() {
           <Box m={5}>
             <Stack spacing={10}>
               <Grid templateColumns="repeat(2, 1fr)" gap={8}>
-             
                 <GridItem>
                   <FormControl isInvalid={errors.first_name}>
                     <FormLabel fontSize="15px" color=" #808080">
@@ -132,48 +124,46 @@ function Profile() {
                   </FormControl>
                 </GridItem>
                 <GridItem mb={10}>
-                        <FormControl isInvalid={errors.date_of_brth}>
-                          <FormLabel fontSize="15px" color=" #808080">
-                            {" "}
-                            Date Of Birth{" "}
-                          </FormLabel>
-                          <Input
-                            type="text"
-                            {...register("date_of_brth", {
-                              required: "date of brth is required",
-                            })}
-                            bg="#e6eeff"
-                          />
-                          <FormErrorMessage>
-                            {errors.date_of_brth && errors.date_of_brth.message}
-                          </FormErrorMessage>
-                        </FormControl>
-                      </GridItem>
-                      <GridItem>
-                        <FormControl isInvalid={errors.gender}>
-                          <FormLabel fontSize="15px" color=" #808080">
-                            {" "}
-                            Gender{" "}
-                          </FormLabel>
-                          <Input
-                            type="text"
-                            {...register("gender", {
-                              required: "gender is required",
-                            })}
-                            bg="#e6eeff"
-                          />
-                          <FormErrorMessage>
-                            {errors.address && errors.address.message}
-                          </FormErrorMessage>
-                        </FormControl>
-                      </GridItem>
-               
+                  <FormControl isInvalid={errors.date_of_brth}>
+                    <FormLabel fontSize="15px" color=" #808080">
+                      {" "}
+                      Date Of Birth{" "}
+                    </FormLabel>
+                    <Input
+                      type="text"
+                      {...register("date_of_brth", {
+                        required: "date of brth is required",
+                      })}
+                      bg="#e6eeff"
+                    />
+                    <FormErrorMessage>
+                      {errors.date_of_brth && errors.date_of_brth.message}
+                    </FormErrorMessage>
+                  </FormControl>
+                </GridItem>
+                <GridItem>
+                  <FormControl isInvalid={errors.gender}>
+                    <FormLabel fontSize="15px" color=" #808080">
+                      {" "}
+                      Gender{" "}
+                    </FormLabel>
+                    <Input
+                      type="text"
+                      {...register("gender", {
+                        required: "gender is required",
+                      })}
+                      bg="#e6eeff"
+                    />
+                    <FormErrorMessage>
+                      {errors.address && errors.address.message}
+                    </FormErrorMessage>
+                  </FormControl>
+                </GridItem>
               </Grid>
               <Accordion defaultIndex={[1]} allowMultiple width="100%">
                 <AccordionItem>
                   <AccordionPanel>
                     <Grid templateColumns="repeat(2, 1fr)" gap={8}>
-                    
                       <GridItem>
                         <FormControl isInvalid={errors.address}>
                           <FormLabel fontSize="15px" color=" #808080">
@@ -232,7 +222,7 @@ function Profile() {
                         <FormControl isInvalid={errors.state}>
                           <FormLabel fontSize="15px" color=" #808080">
                             {" "}
-                           State{" "}
+                            State{" "}
                           </FormLabel>
                           <Input
                             type="text"
@@ -242,8 +232,7 @@ function Profile() {
                             bg="#e6eeff"
                           />
                           <FormErrorMessage>
-                            {errors.state &&
-                              errors.state.message}
+                            {errors.state && errors.state.message}
                           </FormErrorMessage>
                         </FormControl>
                       </GridItem>
@@ -284,7 +273,6 @@ function Profile() {
                           </FormErrorMessage>
                         </FormControl>
                       </GridItem>
-                     
                     </Grid>
                   </AccordionPanel>
                   <AccordionButton className="profile" borderStyle="none">
@@ -299,7 +287,6 @@ function Profile() {
       </Box>
     </>
   );
-                            }
-
+}
 
 export default Profile;
